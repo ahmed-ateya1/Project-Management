@@ -24,7 +24,7 @@ Public Class ProjectManagement
                 ddlGovernorate.DataTextField = "Name"
                 ddlGovernorate.DataValueField = "ID"
                 ddlGovernorate.DataBind()
-                ddlGovernorate.Items.Insert(0, New ListItem("Select Governorate", ""))
+                ddlGovernorate.Items.Insert(0, New ListItem("اختر المحافظه", ""))
             Catch ex As Exception
                 ShowError("Error loading governorate data: " & ex.Message)
             End Try
@@ -107,16 +107,16 @@ Public Class ProjectManagement
 
                         With cmdProject.Parameters
                             .AddWithValue("@ProjectNameAr", txtProjectNameAr.Text)
-                            .AddWithValue("@ProjectNameEn", txtProjectNameEn.Text)
-                            .AddWithValue("@ProType", Integer.Parse(ddlProType.SelectedValue))
-                            .AddWithValue("@ProPlace", Integer.Parse(ddlProPlace.SelectedValue))
+                            .AddWithValue("@ProjectNameEn", "ahmed")
+                            .AddWithValue("@ProType", 1)
+                            .AddWithValue("@ProPlace", 1)
                             .AddWithValue("@StDate", DateTime.Parse(txtStartDate.Text))
                             .AddWithValue("@CustomerID", 1) ' Default value for Customer_ID
                             .AddWithValue("@StBudget", txtStBudget.Text)
                             .AddWithValue("@GovCOD", Integer.Parse(ddlGovernorate.SelectedValue))
-                            .AddWithValue("@ProAddress", txtProAddress.Text)
+                            .AddWithValue("@ProAddress", "Aaa")
                             .AddWithValue("@ProLocationDetail", txtProLocationDetail.Text)
-                            .AddWithValue("@ProMail", txtProMail.Text)
+                            .AddWithValue("@ProMail", "AHME")
                         End With
 
                         cmdProject.ExecuteNonQuery()

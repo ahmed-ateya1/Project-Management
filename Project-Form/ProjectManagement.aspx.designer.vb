@@ -32,60 +32,6 @@ Partial Public Class ProjectManagement
     Protected WithEvents rfvProjectNameAr As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''txtProjectNameEn control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtProjectNameEn As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''rfvProjectNameEn control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rfvProjectNameEn As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''ddlProType control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlProType As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''rfvProType control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rfvProType As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''ddlProPlace control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlProPlace As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''rfvProPlace control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rfvProPlace As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
     '''txtStartDate control.
     '''</summary>
     '''<remarks>
@@ -140,22 +86,22 @@ Partial Public Class ProjectManagement
     Protected WithEvents rfvGovernorate As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''txtProAddress control.
+    '''ddlProPlace control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtProAddress As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlProPlace As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''rfvProAddress control.
+    '''rfvProPlace control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfvProAddress As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvProPlace As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''txtProLocationDetail control.
@@ -165,24 +111,6 @@ Partial Public Class ProjectManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtProLocationDetail As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtProMail control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtProMail As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''revProMail control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents revProMail As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''gvRequestDetails control.
