@@ -40,7 +40,6 @@ Public Class ProjectManagement
                 Dim adapter As New OleDbDataAdapter(cmd)
                 adapter.Fill(dt)
 
-
                 For Each row As GridViewRow In gvRequestDetails.Rows
                     If row.RowType = DataControlRowType.DataRow Then
                         Dim ddlOrganization As DropDownList = DirectCast(row.FindControl("ddlOrganization"), DropDownList)
@@ -84,7 +83,6 @@ Public Class ProjectManagement
         Dim dt As New DataTable()
         If ViewState("RequestDetails") Is Nothing Then
             dt.Columns.Add("OrganizationID", GetType(Integer))
-            dt.Columns.Add("ExpertID", GetType(Integer))
             dt.Columns.Add("RequestItems", GetType(String))
             dt.Columns.Add("RequestDate", GetType(DateTime))
             ViewState("RequestDetails") = dt
@@ -102,7 +100,6 @@ Public Class ProjectManagement
                     Dim transaction As OleDbTransaction = conn.BeginTransaction()
 
                     Try
-
                         Dim cmdProject As New OleDbCommand("INSERT INTO Project_Info (ProjectNameAr, ProjectNameEn, Pro_Type, " &
                         "Pro_Place, St_Date, Customer_ID, St_Budget, Gov_COD, Pro_Address, Pro_LocationDetail, Pro_Mail) " &
                         "VALUES (@ProjectNameAr, @ProjectNameEn, @ProType, @ProPlace, @StDate, @CustomerID, @StBudget, " &
@@ -114,7 +111,7 @@ Public Class ProjectManagement
                             .AddWithValue("@ProType", Integer.Parse(ddlProType.SelectedValue))
                             .AddWithValue("@ProPlace", Integer.Parse(ddlProPlace.SelectedValue))
                             .AddWithValue("@StDate", DateTime.Parse(txtStartDate.Text))
-                            .AddWithValue("@CustomerID", Integer.Parse(txtCustomerID.Text))
+                            .AddWithValue("@CustomerID", 1) ' Default value for Customer_ID
                             .AddWithValue("@StBudget", txtStBudget.Text)
                             .AddWithValue("@GovCOD", Integer.Parse(ddlGovernorate.SelectedValue))
                             .AddWithValue("@ProAddress", txtProAddress.Text)
@@ -124,20 +121,16 @@ Public Class ProjectManagement
 
                         cmdProject.ExecuteNonQuery()
 
-
                         Dim cmdLastID As New OleDbCommand("SELECT @@IDENTITY", conn, transaction)
                         Dim projectID As Integer = Convert.ToInt32(cmdLastID.ExecuteScalar())
-
 
                         For Each row As GridViewRow In gvRequestDetails.Rows
                             If row.RowType = DataControlRowType.DataRow Then
                                 Dim ddlOrganization As DropDownList = DirectCast(row.FindControl("ddlOrganization"), DropDownList)
-                                Dim txtExpertID As TextBox = DirectCast(row.FindControl("txtExpertID"), TextBox)
                                 Dim txtRequestItems As TextBox = DirectCast(row.FindControl("txtRequestItems"), TextBox)
                                 Dim txtRequestDate As TextBox = DirectCast(row.FindControl("txtRequestDate"), TextBox)
 
                                 If Not String.IsNullOrEmpty(ddlOrganization.SelectedValue) AndAlso
-                                   Not String.IsNullOrEmpty(txtExpertID.Text) AndAlso
                                    Not String.IsNullOrEmpty(txtRequestItems.Text) AndAlso
                                    Not String.IsNullOrEmpty(txtRequestDate.Text) Then
 
@@ -147,7 +140,7 @@ Public Class ProjectManagement
                                     With cmdRequest.Parameters
                                         .AddWithValue("@ProjectID", projectID)
                                         .AddWithValue("@OrganizationID", Integer.Parse(ddlOrganization.SelectedValue))
-                                        .AddWithValue("@ExpertID", Integer.Parse(txtExpertID.Text))
+                                        .AddWithValue("@ExpertID", 1) ' Default value for Expert_ID
                                         .AddWithValue("@RequestItems", txtRequestItems.Text)
                                         .AddWithValue("@RequestDate", DateTime.Parse(txtRequestDate.Text))
                                     End With

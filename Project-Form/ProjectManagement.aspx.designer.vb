@@ -14,15 +14,6 @@ Option Explicit On
 Partial Public Class ProjectManagement
 
     '''<summary>
-    '''form1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
-    '''<summary>
     '''txtProjectNameAr control.
     '''</summary>
     '''<remarks>
@@ -111,24 +102,6 @@ Partial Public Class ProjectManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvStartDate As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''txtCustomerID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtCustomerID As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''rfvCustomerID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rfvCustomerID As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''txtStBudget control.
