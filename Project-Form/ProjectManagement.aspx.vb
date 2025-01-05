@@ -40,7 +40,7 @@ Public Class ProjectManagement
                 Dim adapter As New OleDbDataAdapter(cmd)
                 adapter.Fill(dt)
 
-                ' Bind the dropdown in the GridView
+
                 For Each row As GridViewRow In gvRequestDetails.Rows
                     If row.RowType = DataControlRowType.DataRow Then
                         Dim ddlOrganization As DropDownList = DirectCast(row.FindControl("ddlOrganization"), DropDownList)
@@ -65,7 +65,7 @@ Public Class ProjectManagement
         dt.Rows.Add(dt.NewRow())
         gvRequestDetails.DataSource = dt
         gvRequestDetails.DataBind()
-        LoadOrganizationData() ' Reload organization data for the new row
+        LoadOrganizationData()
     End Sub
 
     Protected Sub btnRemove_Click(sender As Object, e As EventArgs)
@@ -102,7 +102,7 @@ Public Class ProjectManagement
                     Dim transaction As OleDbTransaction = conn.BeginTransaction()
 
                     Try
-                        ' Insert Project Info
+
                         Dim cmdProject As New OleDbCommand("INSERT INTO Project_Info (ProjectNameAr, ProjectNameEn, Pro_Type, " &
                         "Pro_Place, St_Date, Customer_ID, St_Budget, Gov_COD, Pro_Address, Pro_LocationDetail, Pro_Mail) " &
                         "VALUES (@ProjectNameAr, @ProjectNameEn, @ProType, @ProPlace, @StDate, @CustomerID, @StBudget, " &
@@ -124,11 +124,11 @@ Public Class ProjectManagement
 
                         cmdProject.ExecuteNonQuery()
 
-                        ' Get the last inserted Project ID
+
                         Dim cmdLastID As New OleDbCommand("SELECT @@IDENTITY", conn, transaction)
                         Dim projectID As Integer = Convert.ToInt32(cmdLastID.ExecuteScalar())
 
-                        ' Insert Project Request Details
+
                         For Each row As GridViewRow In gvRequestDetails.Rows
                             If row.RowType = DataControlRowType.DataRow Then
                                 Dim ddlOrganization As DropDownList = DirectCast(row.FindControl("ddlOrganization"), DropDownList)
@@ -156,8 +156,6 @@ Public Class ProjectManagement
                                 End If
                             End If
                         Next
-
-                        ' Commit transaction
                         transaction.Commit()
                         ShowSuccess("Project and request details saved successfully.")
 
