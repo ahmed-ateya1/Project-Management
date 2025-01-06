@@ -1,0 +1,126 @@
+﻿
+.form-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    min-width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    }
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+.text-danger {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    color: #dc3545;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+    .form-group.row {
+        margin-bottom: 1rem;
+    }
+
+        .form-group.row .col-md-6 {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+.icon {
+    margin-right: 0.5rem;
+}
+
+.form-select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: left 0.75rem center;
+    padding-left: 2.5rem;
+    text-align: right;
+}
+
+.form-group.row .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.grid-view-container {
+    margin-top: 2rem;
+}
+
+    .grid-view-container .table {
+        width: 100%;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+        .grid-view-container .table th {
+            background-color: transparent;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            padding: 0.75rem;
+            text-align: right;
+        }
+
+        .grid-view-container .table td {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dee2e6;
+            padding: 0.75rem;
+            text-align: right;
+        }
+
+        .grid-view-container .table tr:hover td {
+            background-color: #f8f9fa;
+        }
+
+        .grid-view-container .table .btn {
+            margin: 0.25rem;
+        }
