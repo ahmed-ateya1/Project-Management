@@ -271,7 +271,7 @@
     </Compile>
     <Compile Include="ProjectManagement.aspx.vb">
       <DependentUpon>ProjectManagement.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Projectweb.Master.designer.vb">
       <DependentUpon>Projectweb.Master</DependentUpon>

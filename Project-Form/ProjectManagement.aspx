@@ -1,5 +1,4 @@
-﻿
-<%@ Page Language="VB" AutoEventWireup="true" CodeBehind="ProjectManagement.aspx.vb"
+﻿<%@ Page Language="VB" AutoEventWireup="true" CodeBehind="ProjectManagement.aspx.vb"
     Inherits="Project_Form.ProjectManagement" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -92,7 +91,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="تاريخ الطلب">
                         <ItemTemplate>
-                            <asp:TextBox ID="txtRequestDate" runat="server" CssClass="form-control" TextMode="Date" />
+                            <asp:Label ID="lblRequestDate" runat="server" Text='<%# Eval("RequestDate", "{0:yyyy-MM-dd}") %>' CssClass="form-control" />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField>

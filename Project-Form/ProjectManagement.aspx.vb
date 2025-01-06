@@ -61,7 +61,9 @@ Public Class ProjectManagement
 
     Private Sub AddNewRow()
         Dim dt As DataTable = GetRequestDetailsTable()
-        dt.Rows.Add(dt.NewRow())
+        Dim newRow As DataRow = dt.NewRow()
+        newRow("RequestDate") = DateTime.UtcNow ' Set to current UTC date and time
+        dt.Rows.Add(newRow)
         gvRequestDetails.DataSource = dt
         gvRequestDetails.DataBind()
         LoadOrganizationData()
@@ -128,11 +130,10 @@ Public Class ProjectManagement
                             If row.RowType = DataControlRowType.DataRow Then
                                 Dim ddlOrganization As DropDownList = DirectCast(row.FindControl("ddlOrganization"), DropDownList)
                                 Dim txtRequestItems As TextBox = DirectCast(row.FindControl("txtRequestItems"), TextBox)
-                                Dim txtRequestDate As TextBox = DirectCast(row.FindControl("txtRequestDate"), TextBox)
+                                Dim lblRequestDate As Label = DirectCast(row.FindControl("lblRequestDate"), Label)
 
                                 If Not String.IsNullOrEmpty(ddlOrganization.SelectedValue) AndAlso
-                                   Not String.IsNullOrEmpty(txtRequestItems.Text) AndAlso
-                                   Not String.IsNullOrEmpty(txtRequestDate.Text) Then
+                                   Not String.IsNullOrEmpty(txtRequestItems.Text) Then
 
                                     Dim cmdRequest As New OleDbCommand("INSERT INTO Project_Request (Project_ID, Organization_ID, Expert_ID, Pro_Request_Items, Request_Date) " &
                                     "VALUES (@ProjectID, @OrganizationID, @ExpertID, @RequestItems, @RequestDate)", conn, transaction)
@@ -142,7 +143,7 @@ Public Class ProjectManagement
                                         .AddWithValue("@OrganizationID", Integer.Parse(ddlOrganization.SelectedValue))
                                         .AddWithValue("@ExpertID", 1) ' Default value for Expert_ID
                                         .AddWithValue("@RequestItems", txtRequestItems.Text)
-                                        .AddWithValue("@RequestDate", DateTime.Parse(txtRequestDate.Text))
+                                        .AddWithValue("@RequestDate", DateTime.Parse(lblRequestDate.Text))
                                     End With
 
                                     cmdRequest.ExecuteNonQuery()
